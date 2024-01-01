@@ -1,14 +1,13 @@
 set nocompatible              " be iMproved, required 
 filetype off
+
 " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim 
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
+"call vundle#begin('~/some/path/here') let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.  
@@ -28,6 +27,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
+"
+"
 
 
 " The following are the plugins I added 
@@ -46,10 +47,16 @@ Plugin 'jalvesaq/Nvim-R'
 
 " mainly for python
 Plugin 'jalvesaq/vimcmdline'
+" note: \s to start
 
 " Database
 Plugin 'tpope/vim-dadbod'
 
+" Copilot
+Plugin 'github/copilot.vim'
+
+" grammar check 
+Plugin 'rhysd/vim-grammarous'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -123,6 +130,7 @@ set bg=dark
 set backspace=indent,eol,start
 
 "" NerdTree
+let NERDTreeWinSize=20
 
 "
 " Automatically open nerdtree autocmd vimenter * NERDTree Close nerdtree if
@@ -134,6 +142,8 @@ set backspace=indent,eol,start
 
 "" Nvim -R
 let R_assign = 0
+let R_rconsole_width = 65
+let R_min_editor_width = 18
 
 " my cheat sheet Ctrl + w + w : switch windows within tab (useful for
 " nerdtree) (Terminal feature) Cmd + n : switch to nth tab 
@@ -171,5 +181,8 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 " vim-dadbod
 let g:db = "mysql://root:@localhost/sakila"
+
+" grammoarous path to the language tool
+let g:grammarous#jar_url = 'https://www.languagetool.org/download/LanguageTool-5.9.zip'
 
 
